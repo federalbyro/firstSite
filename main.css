@@ -1,0 +1,208 @@
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+header {
+    font-size: 18px;
+    line-height: 25px;
+    position: absolute; /* Изменено на fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(41, 162, 140, 0.11);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000; /* Увеличен z-index */
+}
+
+.fon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://ucarecdn.com/761233c4-7224-418d-b151-ea7bc1196250/');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.fon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 12, 33, 0.65);
+    backdrop-filter: blur(2px);
+    z-index: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 51px; 
+    height: 51px;
+    margin-right: 10px;
+}
+
+.logo span {
+    line-height: 25px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.menu ul { 
+    display: flex;
+    letter-spacing: .1rem;
+    list-style: none;
+    align-items: center;
+    gap: 50px; 
+    color: #FFFFFF;
+    font-size: 22px; 
+}
+
+.menu ul li {
+    position: relative;
+}
+
+.menu ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 10px; 
+    display: inline-block;
+}
+
+.menu ul li:hover {
+    color: #29A28C;
+}
+
+.menu ul li + li {
+    margin-left: 30px; 
+}
+
+section {
+    position: relative;
+    height: 100vh; /* Занимает всю высоту экрана */
+    width: 100%;
+    padding-top: 80px; /* Отступ для фиксированного заголовка */
+    overflow: hidden;
+}
+
+.last_text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.last_text #first {
+    -webkit-text-stroke: 1px #000000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 54px;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 70px;
+}
+
+.button-container {
+    position: relative;
+    margin-top: 15%;
+    padding: 0 50px; 
+}
+
+#second {
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 15px 85px; 
+    font-size: 18px;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 43px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#second:hover {
+    background-color: #FFFFFF;
+    color: #0D0C21;
+}
+
+.arrow-container {
+    position: relative;
+    margin-top: 80px;
+}
+
+.way {
+    height: 172px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.way:hover {
+    transform: translateY(10px);
+}
+
+main {
+    position: static;
+    padding: 50px 20px;
+    background-color: #ffffff;
+    color: #ffffff;
+    text-align: center;
+}
+
+.numbers ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.numbers ul li {
+    margin: 10px;
+    text-align: center;
+}
+
+.numbers ul li h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    color: #29a28c;
+}
+
+.numbers ul li p {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
