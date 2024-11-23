@@ -5,6 +5,12 @@
     font-family: "Open Sans", sans-serif;
 }
 
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Предотвращает горизонтальную прокрутку */
+}
+
 header {
     font-size: 18px;
     line-height: 25px;
@@ -13,26 +19,29 @@ header {
     left: 0;
     width: 100%;
     height: 80px;
-    background: rgba(41, 162, 140, 0.11);
+    background-color: rgba(41, 162, 140, 0.11);
     backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-    z-index: 1000; /* Увеличен z-index */
+    z-index: 1; /* Увеличен z-index */
+    
 }
 
+
 .fon {
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* Фоновое изображение для секции hero */
     width: 100%;
     height: 100%;
     background-image: url('https://ucarecdn.com/761233c4-7224-418d-b151-ea7bc1196250/');
     background-size: cover;
-    background-position: top center;
+    background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    position: absolute; /* Абсолютное позиционирование внутри hero */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Разместить фон за содержимым */
 }
 
 .fon::after {
@@ -97,19 +106,19 @@ header {
 
 section {
     position: relative;
-    height: 100vh; /* Занимает всю высоту экрана */
+    min-height: 100vh; 
     width: 100%;
-    padding-top: 80px; /* Отступ для фиксированного заголовка */
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .last_text {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative; /* Изменено на relative для адаптивности */
     text-align: center;
     z-index: 1;
+    padding: 20px;
 }
 
 .last_text #first {
@@ -120,19 +129,18 @@ section {
     color: #FFFFFF;
     margin: 0;
     line-height: 70px;
+    margin-top: -130px;
 }
 
 .button-container {
-    position: relative;
-    margin-top: 15%;
-    padding: 0 50px; 
+    margin-top: 100px;
 }
 
 #second {
     letter-spacing: 2px;
     display: inline-block;
-    padding: 15px 85px; 
-    font-size: 18px;
+    padding: 15px 45px; 
+    font-size: 16px;
     color: #FFFFFF;
     border: 2px solid #FFFFFF;
     border-radius: 43px;
@@ -146,12 +154,12 @@ section {
 }
 
 .arrow-container {
-    position: relative;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 .way {
-    height: 172px;
+    width: 50px;
+    height: 80px;
     display: block;
     margin: 0 auto;
     cursor: pointer;
@@ -159,50 +167,171 @@ section {
 }
 
 .way:hover {
-    transform: translateY(10px);
+    transform: translateY(35px);
 }
 
 main {
-    position: static;
-    padding: 50px 20px;
+    width: 100%;
+    padding: 180px 20px;
     background-color: #ffffff;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
+    justify-content: space-evenly;
 }
 
 .numbers ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 столбца одинаковой ширины */
+    gap: 20px; /* Увеличенное расстояние между элементами */
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 1200px;
+    margin: 0 auto; /* Центрирование контейнера */
+    position: relative;
 }
 
 .numbers ul li {
-    margin: 10px;
-    text-align: center;
+    position: relative;
+    padding: 40px 30px; /* Увеличенные отступы */
+    box-sizing: border-box;
+    background-color: #ffffff; /* Фон для визуального отделения */
+    display: flex; /* Использование Flexbox для центрирования содержимого */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.numbers ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -10px; /* Сдвиг разделителя вправо, чтобы он не перекрывал текст */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%; /* Высота разделителя */
+    width: 3px;
+    background-color: #29A28C;
 }
 
 .numbers ul li h2 {
     font-size: 48px;
     font-weight: bold;
     margin: 0;
-    color: #29a28c;
+    color: #000000;
 }
 
 .numbers ul li p {
     font-size: 16px;
     margin: 10px 0 0 0;
-    color: #ffffff;
+    color: #000000;
     opacity: 0.8;
 }
 
+@media (max-width: 768px) {
+    .numbers ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .numbers ul li {
+        width: 100%;
+        max-width: none;
+        padding: 20px 0;
+    }
+
+    .numbers ul li:not(:last-child)::after {
+        display: none; 
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Создаём 2 колонки одинаковой ширины */
+    gap: 50px; /* Расстояние между колонками и строками */
+    background-color: #FFFFFF;
+    margin: 0 68px 240px 80px;
+    padding: 0; 
+    align-items: center; 
+}
+
+.photo_number1 img {
+    width: 100%; /* Позволяет изображению занимать всю доступную ширину */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+#right_text {
+    letter-spacing: .1rem;
+    margin: 0; /* Убираем авто отступы */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: space-between;  /* Центрируем содержимое по вертикали */
+    position: relative; /* Для абсолютного позиционирования SVG */
+    width: 100%; /* Занимает всю доступную ширину правой колонки */
+    padding: 20px; /* Добавляем внутренние отступы */
+}
 
 
+.img-first p, .img-second p {
+    margin: 10px;
+}
+.img-first {
+    position: relative;
+    font-weight: bold;
+    font-size: 40px;
+    color: #000;
+    margin-bottom: 20px;
+}
 
+/* Позиционируем первый SVG (открывающая кавычка) */
+#right_text .quote-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
+/* Позиционируем второй SVG (закрывающая кавычка) внутри .img-first */
+.img-first .quote-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
+.img-second {
+    font-size: 23px;
+    color: #000;
+    position: relative; /* Для относительного позиционирования, если нужно */
+    margin: 47px auto; /* Центрируем и добавляем верхний отступ */
+}
+#black_button {
+    margin:33px auto;
+    width: 325px;
+    height: 55px;
+    display: inline-block;
+    background-color: #000000;
+    margin-bottom: 100px;
+    border: 2px solid #000000;
+    letter-spacing: 2px;
+    padding: 15px 45px; 
+    font-size: 16px;
+    color: #FFFFFF;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 5px 7px 5px rgba(20, 19, 20, 0.151);
+}
 
+#black_button:hover {
+    background-color:  #29A28C;
+    border: 2px solid #29A28C;
+    box-shadow: none;
+}
+
+.img-third {
+    color:#505050; /* Ограничение ширины для лучшего выравнивания */
+}
+
+.img-third p {
+    margin: 0;
+    line-height: 1.5;
+}
 
