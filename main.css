@@ -244,80 +244,85 @@ main {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Создаём 2 колонки одинаковой ширины */
-    gap: 50px; /* Расстояние между колонками и строками */
+    grid-template-columns: 1fr 1fr;
+        gap: 50px;
     background-color: #FFFFFF;
     margin: 0 68px 240px 80px;
-    padding: 0; 
-    align-items: center; 
+    align-items: start;
+    padding: 0;
 }
 
 .photo_number1 img {
-    width: 100%; /* Позволяет изображению занимать всю доступную ширину */
-    height: auto; /* Сохраняем пропорции изображения */
+    width: 100%;
+        height: auto;
 }
 
 #right_text {
-    letter-spacing: .1rem;
-    margin: 0; /* Убираем авто отступы */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем содержимое по горизонтали */
-    justify-content: space-between;  /* Центрируем содержимое по вертикали */
-    position: relative; /* Для абсолютного позиционирования SVG */
-    width: 100%; /* Занимает всю доступную ширину правой колонки */
-    padding: 20px; /* Добавляем внутренние отступы */
+    display: grid;
+        grid-template-rows: auto auto auto auto auto;
+        grid-gap: 20px;
+        position: relative;
+        padding: 20px;
 }
 
-
-.img-first p, .img-second p {
-    margin: 10px;
+.quote {
+    line-height: 55px;
 }
-.img-first {
+
+.quote-top-right {
+    justify-self: end;
+}
+.quote-bottom-left {
+    justify-self: start;
+}
+
+.text-block {
     position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.img-first p {
+    font-size: 50px;
+    letter-spacing: 0.4rem;
+    margin: 0 auto;
     font-weight: bold;
-    font-size: 40px;
+}
+
+.img-second p {
+    font-size: 32px;
+    line-height: 50px;
+    letter-spacing: 0.2rem;
     color: #000;
-    margin-bottom: 20px;
-}
-
-/* Позиционируем первый SVG (открывающая кавычка) */
-#right_text .quote-top-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-/* Позиционируем второй SVG (закрывающая кавычка) внутри .img-first */
-.img-first .quote-bottom-left {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.img-second {
-    font-size: 23px;
-    color: #000;
-    position: relative; /* Для относительного позиционирования, если нужно */
-    margin: 47px auto; /* Центрируем и добавляем верхний отступ */
+    margin: 47px auto;
+    }
+    
+    .img-third p {
+        color: #505050;
+        width: 80%;
+        line-height: 50px;
+        margin: 120px auto;
+        line-height: 1.5;
+        justify-content: end;
 }
 #black_button {
-    margin:33px auto;
-    width: 325px;
-    height: 55px;
-    display: inline-block;
+    font-weight: normal;
+        width: 375px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     background-color: #000000;
-    margin-bottom: 100px;
     border: 2px solid #000000;
     letter-spacing: 2px;
-    padding: 15px 45px; 
-    font-size: 16px;
+    font-size: 22px;
     color: #FFFFFF;
-    border-radius: 32px;
+    border-radius: 42px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 5px 7px 5px rgba(20, 19, 20, 0.151);
+    padding: 10px 35px;
+        margin: 23px auto;
 }
 
 #black_button:hover {
@@ -326,12 +331,83 @@ main {
     box-shadow: none;
 }
 
-.img-third {
-    color:#505050; /* Ограничение ширины для лучшего выравнивания */
+.services {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 50px;
+    /* Отступ сверху, при необходимости */
 }
 
-.img-third p {
-    margin: 0;
-    line-height: 1.5;
+.services h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 54.47px;
+    letter-spacing: 0.045em;
+    margin-right: 50px;
+    /* Расстояние между заголовком и кейсами */
 }
+
+.caises {
+    display: flex;
+}
+
+.caises ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.caises ul li {
+    margin-right: 92px;
+    /* Расстояние между кейсами */
+}
+
+.caises ul li:last-child {
+    margin-right: 0;
+    /* Убираем отступ после последнего кейса */
+}
+
+.case {
+    position: relative;
+    width: 340px;
+    height: 552px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 27px 0 0 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.case::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #017B65;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(45deg);
+    transform-origin: top right;
+}
+
+.case h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.065em;
+    margin: 20px;
+}
+
+.case p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: left;
+    margin: 20px;
+}
+
 
